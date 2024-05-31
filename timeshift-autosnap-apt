@@ -10,6 +10,11 @@ FORMATBRIGHT="\x1B[1m"
 TEXTRED="\x1B[31m"    #Warning
 TEXTYELLOW="\x1B[33m" #Recommended Commands / Extras
 
+#check for Root
+if [ "$(whoami)" != 'root' ]; then
+    printf "${FORMATBRIGHT}${TEXTRED}%s${FORMATRESET}\n" "command must be run as root...exiting" && exit 1
+fi
+
 [ $(findmnt / -no fstype) == "overlay" ] && { printf "${FORMATBRIGHT}${TEXTYELLOW}%s${FORMATRESET}\n" "==> skipping timeshift-autosnap because system is booted in Live CD mode..."; exit 0; }
 
 [[ -v SKIP_AUTOSNAP ]] && { printf "${FORMATBRIGHT}${TEXTYELLOW}%s${FORMATRESET}\n" "==> skipping timeshift-autosnap due SKIP_AUTOSNAP environment variable being set."; exit 0; }
