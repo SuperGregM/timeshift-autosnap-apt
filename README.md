@@ -26,8 +26,8 @@ Open Timeshift and configure it either using btrfs or rsync. I recommend using b
 #### Main installation
 Clone this repository and install the script and configuration file with make:
 ```bash
-git clone https://github.com/wmutschl/timeshift-autosnap-apt.git /home/$USER/timeshift-autosnap-apt
-cd /home/$USER/timeshift-autosnap-apt
+git clone https://github.com/SuperGregM/timeshift-autosnap-apt.git $HOME/.local/share/timeshift-autosnap-apt
+cd $HOME/.local/share/timeshift-autosnap-apt
 sudo make install
 ```
 After this, make changes to the configuration file:
@@ -39,8 +39,8 @@ For example, if you don't have a dedicated `/boot` partition, then you should se
 #### Optionally, install `grub-btrfs`
 [grub-btrfs](https://github.com/Antynea/grub-btrfs) is a great package which will include all btrfs snapshots into the Grub menu. Clone and install it:
 ```bash
-git clone https://github.com/Antynea/grub-btrfs.git /home/$USER/grub-btrfs
-cd /home/$USER/grub-btrfs
+git clone https://github.com/Antynea/grub-btrfs.git $HOME/.local/share/grub-btrfs
+cd $HOME/.local/share/grub-btrfs
 sudo make install
 ```
 By default the snapshots are displayed as "Arch Linux Snapshots", you can adapt this in `/etc/default/grub-btrfs/config`.
@@ -59,7 +59,7 @@ The configuration file is located in `/etc/timeshift-autosnap-apt.conf`. You can
 To test the functionality, simply run
 ```bash
 sudo timeshift-autosnap-apt
-``` 
+```
 Or try (re)installing some package `maxSnapshots` number of times, e.g.
 ```bash
 sudo apt install --reinstall rolldice
@@ -113,23 +113,23 @@ sudo apt install --reinstall rolldice
 # BTRFS Snapshot saved successfully (0s)
 # Tagged snapshot '2020-04-29_09-53-25': ondemand
 # ------------------------------------------------------------------------------
-# 
+#
 # /dev/dm-1 is mounted at: /run/timeshift/backup, options: rw,relatime,compress=zstd:3,ssd,space_cache,commit=120,subvolid=5,subvol=/
-# 
+#
 # ------------------------------------------------------------------------------
 # Removing snapshot: 2020-04-29_09-46-30
 # Deleting subvolume: @home (Id:662)
 # Deleted subvolume: @home (Id:662)
-# 
+#
 # Destroying qgroup: 0/662
 # Destroyed qgroup: 0/662
-# 
+#
 # Deleting subvolume: @ (Id:661)
 # Deleted subvolume: @ (Id:661)
-# 
+#
 # Destroying qgroup: 0/661
 # Destroyed qgroup: 0/661
-# 
+#
 # Deleted directory: /run/timeshift/backup/timeshift-btrfs/snapshots/2020-04-29_09-46-30
 # Removed snapshot: 2020-04-29_09-46-30
 # ------------------------------------------------------------------------------
@@ -138,7 +138,7 @@ or for RSYNC:
 
 ```bash
 # /dev/vdb1 is mounted at: /run/timeshift/backup, options: rw,relatime
-# 
+#
 # ------------------------------------------------------------------------------
 # Creating new snapshot...(RSYNC)
 # Saving to device: /dev/vdb1, mounted at path: /run/timeshift/backup
@@ -148,19 +148,19 @@ or for RSYNC:
 # RSYNC Snapshot saved successfully (6s)
 # Tagged snapshot '2020-04-29_10-25-35': ondemand
 # ------------------------------------------------------------------------------
-# 
+#
 # /dev/vdb1 is mounted at: /run/timeshift/backup, options: rw,relatime
-# 
+#
 # ------------------------------------------------------------------------------
 # Removing '2020-04-29_10-24-35'...
-# Removed '2020-04-29_10-24-35'                                                   
+# Removed '2020-04-29_10-24-35'
 # ------------------------------------------------------------------------------
 ```
 ---
 
 ### Uninstallation
 ```
-cd /home/$USER/timeshift-autosnap-apt
+cd $HOME/.local/share/timeshift-autosnap-apt
 sudo make uninstall
 ```
 
