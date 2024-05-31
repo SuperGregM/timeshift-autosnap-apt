@@ -51,7 +51,7 @@ The configuration file is located in `/etc/timeshift-autosnap-apt.conf`. You can
 *  `snapshotEFI`: If set to **true** /boot/efi folder will be cloned with rsync into /boot.backup/efi before the call to Timeshift. Default: **true**
 *  `skipAutosnap`: If set to **true** script won't be executed. Default: **false**.
 *  `deleteSnapshots`: If set to **false** old snapshots won't be deleted. Default: **true**
-*  `maxSnapshots`: Defines **maximum** number of old snapshots to keep. Default: **3**
+*  `maxSnapshots`: Defines **maximum** number of old snapshots to keep. Default: **10**
 *  `updateGrub`: If set to **false** GRUB entries won't be generated. Only if grub-btrfs is installed. Default: **true**
 *  `snapshotDescription` Defines **string** used to distinguish snapshots created using timeshift-autosnap-apt. Default: **{timeshift-autosnap-apt} {created before call to APT}**
 
